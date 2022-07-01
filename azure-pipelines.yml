@@ -15,10 +15,7 @@ steps:
   inputs:
     versionSpec: '14.x'
   displayName: 'install nodejs'
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+
 - task: DownloadGitHubRelease@0
   inputs:
     connection: 'git@github.com:AlexMerkushyn/Weight-Tracker.git'
@@ -26,3 +23,7 @@ steps:
     defaultVersionType: 'latest'
     downloadPath: '$(System.ArtifactsDirectory)'
   displayName: 'download in gitlab'
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build'
