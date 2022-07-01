@@ -11,6 +11,12 @@ pool:
   vmImage: BootcampAgent
 
 steps:
-- task: CmdLine@2
+- task: NodeTool@0
   inputs:
-    script: 'echo hello word'
+    versionSpec: '14.x'
+- task: DownloadGitHubRelease@0
+  inputs:
+    connection: 'git@github.com:AlexMerkushyn/Weight-Tracker.git'
+    userRepository: 'AlexMerkushyn/Weight-Tracker'
+    defaultVersionType: 'latest'
+    downloadPath: '$(System.ArtifactsDirectory)'
